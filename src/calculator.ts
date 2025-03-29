@@ -1,12 +1,23 @@
-export function add(numbers: string): number {
-  if (numbers === "") return 0;
+function getDelimiter(numbers: string): { delimiter: RegExp; numberPart: string } {
+  let delimiter = /,|\n/; 
 
-  let delimiter = /,|\n/;
   if (numbers.startsWith("//")) {
-    const parts = numbers.split("\n");
-    delimiter = new RegExp(parts[0].slice(2));
-    numbers = parts[1];
+    const [delimiterLine, numberPart] = numbers.split("\n", 2);
+    return { delimiter: new RegExp(delimiterLine.slice(2)), numberPart };
   }
 
-  return numbers.split(delimiter).map(Number).reduce((a, b) => a + b, 0);
+  return { delimiter, numberPart: numbers };
 }
+
+export function add(numbers: string): number {
+  if (!numbers) return 0; 
+
+  const { delimiter, numberPart } = getDelimiter(numbers); 
+
+  return numberPart
+    .split(delimiter)
+    .map(Number)
+    .reduce((sum, num) => sum + num, 0);
+}
+
+
