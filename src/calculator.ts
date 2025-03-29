@@ -13,7 +13,7 @@ export function add(numbers: string): number {
   if (!numbers) return 0; 
 
   const { delimiter, numberPart } = getDelimiter(numbers);
-  const numArray = numberPart.split(delimiter).map(Number);
+  const numArray = numberPart.split(delimiter).map(Number).filter(num => num <= 1000);
  
   const negatives = numArray.filter(n => n < 0);
   if (negatives.length) {
