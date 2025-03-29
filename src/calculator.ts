@@ -12,12 +12,14 @@ function getDelimiter(numbers: string): { delimiter: RegExp; numberPart: string 
 export function add(numbers: string): number {
   if (!numbers) return 0; 
 
-  const { delimiter, numberPart } = getDelimiter(numbers); 
+  const { delimiter, numberPart } = getDelimiter(numbers);
+  const numArray = numberPart.split(delimiter).map(Number);
+ 
+  const negatives = numArray.filter(n => n < 0);
+  if (negatives.length) {
+    throw new Error(`negative numbers not allowed ${negatives.join(",")}`);
+  }
 
-  return numberPart
-    .split(delimiter)
-    .map(Number)
-    .reduce((sum, num) => sum + num, 0);
+  return numArray.reduce((sum, num) => sum + num, 0);
+
 }
-
-
