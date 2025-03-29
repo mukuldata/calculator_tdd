@@ -17,25 +17,27 @@ This project implements a **String Calculator** using TypeScript and follows Tes
 
 
 ## Handled case:
+- **Create a simple String Calculator**  
+  The method `int Add(string numbers)` can take up to two numbers, separated by commas, and return their sum.  
+  Example inputs: `""`, `"1"`, or `"1,2"` (for an empty string, it returns `0`).  
 
-* Create a simple String calculator with a method signature:
- - int Add(string numbers)
-The method can take up to two numbers, separated by commas, and will return their sum. 
-for example “” or “1” or “1,2” as inputs.
-(for an empty string it will return 0) 
-———————————————————————————————
-Allow the Add method to handle an unknown amount of numbers
-————————————————————————————————
-Allow the Add method to handle new lines between numbers (instead of commas).
-the following input is ok: “1\n2,3” (will equal 6)
-the following input is NOT ok: “1,\n” (not need to prove it - just clarifying)
-——————————————————————————————-
-Support different delimiters
-to change a delimiter, the beginning of the string will contain a separate line that looks like this: “//[delimiter]\n[numbers…]” for example “//;\n1;2” should return three where the default delimiter is ‘;’ .
-the first line is optional. all existing scenarios should still be supported
-————————————————————————————————
-Calling Add with a negative number will throw an exception “negatives not allowed” - and the negative that was passed. 
-if there are multiple negatives, show all of them in the exception message.
-————————————————————————————————
-Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
-————————————————————————————————
+- **Handle an Unknown Amount of Numbers**  
+  The method should support adding multiple numbers, not just two.  
+
+- **Allow New Lines as Delimiters**  
+  The method should support new lines (`\n`) as valid delimiters alongside commas.
+  Example:
+  The input `"1,\n"` is **not** valid.
+
+- **Support Different Delimiters**  
+The method should support custom delimiters defined in the first line of input:
+The first line is optional; existing cases should still work.
+
+- **Handle Negative Numbers**  
+If a negative number is found, the method should throw an error:
+If multiple negatives exist, all should be shown:
+"1,-2,3,-4" // Throws Error: "negatives not allowed: -2,-4"
+
+- **Ignore Numbers Greater Than 1000**  
+Numbers larger than `1000` should be ignored.  
+Example:  
