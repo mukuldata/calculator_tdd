@@ -40,4 +40,4 @@ If multiple negatives exist, all should be shown:
 
 - **Ignore Numbers Greater Than 1000**  
 Numbers larger than `1000` should be ignored.  
-Example:  
+Example:  "2,1001" // Returns 2
