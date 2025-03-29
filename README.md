@@ -2,6 +2,9 @@
 
 ## Get Started
 
+### Deployed Frontend : https://string-calculator-tdd1.netlify.app/
+### Github Frontend : https://github.com/mukuldata/calculator_fronten
+
 This project implements a **String Calculator** using TypeScript and follows Test-Driven Development (TDD) principles with Jest for unit testing.
 
 ### Tech Stack Used
