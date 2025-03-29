@@ -13,4 +13,7 @@ describe("String Calculator", () => {
   it("should return the sum of multiple numbers", () => {
     expect(add("1,2,3,4")).toBe(10);
   });
+  it("should handle new lines between numbers", () => {
+    expect(add("1\n2,3")).toBe(6);
+  });
 });
